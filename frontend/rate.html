@@ -28,6 +28,7 @@
             <label for="progress">On a scale of 100, How clean is your Lawn ?</label><br>
             <input type="range" class="w-[100%]" id="rangeInput">
             <p class="text-center font-bold" id="rateval">50</p>
+            <p class="text-center text-7xl" id="emoji">😁</p>
             <button class="text-xl font-semibold bg-green-400 text-white py-2 mt-6 w-[100%] rounded cursor-pointer">Submit</button>
         </div>
     </section>
@@ -39,10 +40,31 @@
 <script>
     let p = document.querySelector('#rateval')
     let rangeInput = document.querySelector('#rangeInput')
+    let emj = document.querySelector('#emoji')
+    console.log(emj)
     rangeInput.addEventListener('change',(e) => {
+        let rangeValue = Number(e.target.value)
         let val = document.createTextNode(Number(e.target.value))
         p.innerHTML = ''
         p.appendChild(val)
+        if(rangeValue <= 30)
+            emj.innerHTML = '😓'
+        else if(rangeValue > 30 && rangeValue <=50)
+            emj.innerHTML = '😐'
+        else if(rangeValue > 50 && rangeValue <=70)
+            emj.innerHTML = '😉'
+        else if(rangeValue > 70 && rangeValue <=90)
+            emj.innerHTML = '😄'
+        else if(rangeValue > 90)
+            emj.innerHTML = '🤩'
     })
 </script>
 </html>
+
+<!-- variablity - differentiation of data
+vagueness - indistinctness of data
+visualization - representation of data
+venue - various sources of data
+vocabulary - data terminology
+validity - authenticity of data
+volatility - duration of usefulness of data  -->
